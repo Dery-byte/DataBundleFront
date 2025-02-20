@@ -1,0 +1,8 @@
+1 => git lfs install
+2 => git lfs track ".angular/cache/**"
+3 => git add .gitattributes
+4 => git commit -m "Track large files with Git LFS"
+5 => git push origin master
+
+
+Remove git Initialized => Remove-Item -Recurse -Force .git

@@ -1,0 +1,12 @@
+
+.fa-stack[data-count]:after{
+    position:absolute;
+    right:8%;
+    top:-5%;
+    content: attr(data-count);
+    font-size:18px;
+    padding:.4em;
+    /* border-radius:999px; */
+    line-height:.85em;
+    color: rgb(60, 17, 139);
+  }
