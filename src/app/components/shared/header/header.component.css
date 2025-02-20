@@ -10,3 +10,8 @@
     line-height:.85em;
     color: rgb(60, 17, 139);
   }
+
+  .badge {
+    font-size: 12px;
+    padding: 4px 8px;
+}

@@ -9,7 +9,10 @@
                 <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>immanuelderry31&#64;gmail.com</a>
             </div>
         </div>
-        <div class="col-lg-4 text-center text-lg-end">
+
+
+
+        <!-- <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
                 <a routerLink="/register"><small class="me-3 text-dark"><i class="fa fa-user text-primary me-2"></i>Register</small></a>
                 <a routerLink="/login"><small class="me-3 text-dark"><i class="fa fa-sign-in-alt text-primary me-2"></i>Login</small></a>
@@ -24,7 +27,63 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                
+                <!-- Show Register & Login when NO username -->
+                <a routerLink="/register" *ngIf="!username">
+                    <small class="me-3 text-dark">
+                        <i class="fa fa-user text-primary me-2"></i>Register
+                    </small>
+                </a>
+                <a routerLink="/login" *ngIf="!username">
+                    <small class="me-3 text-dark">
+                        <i class="fa fa-sign-in-alt text-primary me-2"></i>Login
+                    </small>
+                </a>
+        
+                <!-- Show My Dashboard when username is available -->
+                <div class="dropdown" *ngIf="username">
+                    <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                        <small>
+                            <i class="fa fa-home text-primary me-2"></i> {{username}} Dashboard
+                        </small>
+                    </a>
+                    <div class="dropdown-menu rounded">
+                        <a routerLink="/cart" class="dropdown-item">
+                            <i class="fas fa-user-alt me-2"></i> Cart
+                        </a>
+
+                        <!-- <a class="btn btn-primary rounded-pill py-2 px-2" (click)="openModal('@fat')" >Purchase</a
+                            > -->
+            
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-comment-alt me-2"></i> Inbox
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-bell me-2"></i> Notifications
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog me-2"></i> Account Settings
+                        </a>
+                        <button (click)="logout()" class="dropdown-item">
+                            <i class="fas fa-power-off me-2"></i> Log Out
+                        </button>
+                    </div>
+                </div>
+        
+            </div>
         </div>
+        
+
+
+
+
+
+
     </div>
 </div>
 <!-- Topbar End -->
@@ -45,34 +104,77 @@
                 <a routerLinkActive="active" routerLink="/about" class="nav-item nav-link">About</a>
                 <a routerLinkActive="active" routerLink="/services" class="nav-item nav-link">Services</a>
                 <a routerLinkActive="active" routerLink="/blog" class="nav-item nav-link">Blogs</a>
-                <a routerLinkActive="active" routerLink="/offers" class="nav-item nav-link">Our Offers</a>
+                <!-- <a routerLinkActive="active" routerLink="/offers" class="nav-item nav-link">Our Offers</a> -->
 
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                        <span class="dropdown-toggle">Pages</span>
-                    </a>
-                    <div class="dropdown-menu m-0">
-                        <a href="feature.html" class="dropdown-item">Our Features</a>
-                        <a href="team.html" class="dropdown-item">Our team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="offer.html" class="dropdown-item">Our offer</a>
-                        <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div> -->
-                <a routerLinkActive="active" routerLink="/contact" class="nav-item nav-link">Contact Us</a>
+            
+                <a routerLinkActive="active" routerLink="/cart" class="nav-item nav-link d-flex align-items-center gap-1 position-relative">
+                    <span>Cart</span>
+                    <i class="material-icons">shopping_cart</i>
+                    <span class="badge  top-0 start-100 translate-middle bg-danger text-white rounded-pill">
+                        {{ cartCount }}
+                    </span>
+                </a>
+                
+                
+
             </div>
 
 
-            <a href="#" class="py-2 px-5 my-6 my-lg-0 flex-shrink-0"><span class="fa-stack " data-count="5"><i class=" fa fa-stack-2x fa-shopping-cart" aria-hidden="true"></i></span>
-            </a>
-
-
-
-            <a routerLink="/register" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
+            
+            <a  *ngIf="!username" routerLink="/register" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
         </div>
     </nav>
 
     
 </div>
 <!-- Navbar & Hero End -->
+
+
+
+
+
+
+
+<!-- ====================CART AS MODAL===================== -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1"
+data-bs-backdrop="static"
+data-bs-keyboard="false"
+aria-labelledby="exampleModalLabel" 
+ aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Complete Your Purchase</h5>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="paymentForm">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Amount to pay GH₵ :</label>
+            <input type="text" class="form-control" formControlName="amount" id="recipient-name" 
+            (click)="disableField()">
+          </div>
+
+          <select class="form-select" formControlName="network"  aria-label="Default select example">
+  <option selected>Select Network</option>
+  <option value="13">MTN</option>
+  <option value="6">Vodafone</option>
+  <option value="7">Airtel Tigo</option>
+</select>
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Mobile Number:</label>
+            <input type="text" formControlName="mobileNumber" class="form-control" id="recipient-name">
+            <small class="text-danger" *ngIf="paymentForm.controls['mobileNumber'].invalid && paymentForm.controls['mobileNumber'].touched">
+              Enter a valid 10-digit mobile number
+            </small>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="paymentForm.invalid" (click)="sendMessage()">Pay Now!</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()" >Cancel</button>
+      </div>
+    </div>
+  </div>
+</div> -->

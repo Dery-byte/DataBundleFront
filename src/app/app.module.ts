@@ -5,6 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms'; // ✅ Import this
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -27,6 +29,7 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { DatabundlesComponent } from './components/pages/databundles/databundles.component';
 import { ElectronicsComponent } from './components/pages/electronics/electronics.component';
+import { CartComponent } from './components/pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { ElectronicsComponent } from './components/pages/electronics/electronics
     RegisterComponent,
     LoginComponent,
     DatabundlesComponent,
-    ElectronicsComponent
+    ElectronicsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import { ElectronicsComponent } from './components/pages/electronics/electronics
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
