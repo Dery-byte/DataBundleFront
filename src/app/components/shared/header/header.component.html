@@ -53,12 +53,18 @@
                         </small>
                     </a>
                     <div class="dropdown-menu rounded">
-                        <a routerLink="/cart" class="dropdown-item">
+                        <a (click)="openModal('@fat')" class="dropdown-item">
                             <i class="fas fa-user-alt me-2"></i> Cart
                         </a>
+                        <!-- <button class="btn btn-secondary" (click)="openModal('@fat')">Cart</button> -->
 
-                        <!-- <a class="btn btn-primary rounded-pill py-2 px-2" (click)="openModal('@fat')" >Purchase</a
-                            > -->
+                       
+
+
+
+
+
+                            
             
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-comment-alt me-2"></i> Inbox
@@ -114,12 +120,7 @@
                         {{ cartCount }}
                     </span>
                 </a>
-                
-                
-
             </div>
-
-
             
             <a  *ngIf="!username" routerLink="/register" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
         </div>

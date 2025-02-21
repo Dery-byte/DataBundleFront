@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { LoginService } from 'src/app/components/services/login.service';
-
 import { StorageService } from 'src/app/components/services/storage.service';
 
 declare var bootstrap: any;  // 👈 Add this at the top
@@ -9,6 +7,8 @@ declare var $: any;  // Add this at the top if using jQuery
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartService } from '../../services/cart.service';
+import { Subscription, interval } from 'rxjs';
+
 
 @Component({
   selector: 'app-header',
@@ -16,17 +16,12 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  private intervalSubscription!: Subscription;
   paymentForm!: FormGroup;
-
   username: string | null = null;
   isloggedIn = false;
   user = null;
   isModalOpen =false;
-
-  
-
-
   constructor(private storageService:StorageService, private login: LoginService, private cartService: CartService){}
   cartCount: number = 0; // Example: Get this from a cart service dynamically
 
@@ -34,6 +29,9 @@ export class HeaderComponent {
  ngOnInit(){
  this.username = this.storageService.getUsername();
  this.cartCounts();
+ this.intervalSubscription = interval(2000).subscribe(() => {
+  this.cartCounts(); // Refresh every 3 seconds
+});
 
   }
 
@@ -86,6 +84,13 @@ export class HeaderComponent {
         console.log(data);
       
               });
+    }
+
+
+    ngOnDestroy() {
+      if (this.intervalSubscription) {
+        this.intervalSubscription.unsubscribe(); // Cleanup to prevent memory leaks
+      }
     }
   
 
