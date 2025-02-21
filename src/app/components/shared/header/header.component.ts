@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
-import { StorageService } from 'src/app/services/storage.service';
+
+import { LoginService } from 'src/app/components/services/login.service';
+
+import { StorageService } from 'src/app/components/services/storage.service';
+
 declare var bootstrap: any;  // 👈 Add this at the top
 declare var $: any;  // Add this at the top if using jQuery
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -23,12 +27,13 @@ export class HeaderComponent {
   
 
 
-  constructor(private storageService:StorageService, private login: LoginService){}
-  cartCount: number = 3; // Example: Get this from a cart service dynamically
+  constructor(private storageService:StorageService, private login: LoginService, private cartService: CartService){}
+  cartCount: number = 0; // Example: Get this from a cart service dynamically
 
 
  ngOnInit(){
  this.username = this.storageService.getUsername();
+ this.cartCounts();
 
   }
 
@@ -42,7 +47,6 @@ export class HeaderComponent {
   }
 
   sendMessage() {
-   
     // Show modal when conditions are met
    if (this.paymentForm.valid) {
      console.log("🚀 Payment Details:", this.paymentForm.getRawValue());
@@ -74,5 +78,15 @@ export class HeaderComponent {
 		window.location.reload();
 		// window.location.href = "/login";
 	}
+
+  cartCounts(){
+      this.cartService.cartCount().subscribe((data:any)=>{
+        //success
+        this.cartCount = data;
+        console.log(data);
+      
+              });
+    }
+  
 
 }

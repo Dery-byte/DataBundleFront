@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // ✅ Import this
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { StorageService } from './components/services/storage.service';
 
 
 
@@ -21,6 +22,10 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ServicesComponent } from './components/pages/services/services.component';
+
+
+
+
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { BlogsComponent } from './components/pages/blogs/blogs.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -46,7 +51,8 @@ import { CartComponent } from './components/pages/cart/cart.component';
     LoginComponent,
     DatabundlesComponent,
     ElectronicsComponent,
-    CartComponent
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,7 @@ import { CartComponent } from './components/pages/cart/cart.component';
     MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

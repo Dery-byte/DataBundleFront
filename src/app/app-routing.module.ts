@@ -11,6 +11,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { DatabundlesComponent } from './components/pages/databundles/databundles.component';
 import { ElectronicsComponent } from './components/pages/electronics/electronics.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { authGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +26,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'databundles', component:DatabundlesComponent},
   {path:'electronics', component:ElectronicsComponent},
-  {path:'cart', component:CartComponent}
+  {path:'cart', component:CartComponent, canActivate: [authGuard]}
 
 
 
