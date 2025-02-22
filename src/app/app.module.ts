@@ -35,6 +35,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { DatabundlesComponent } from './components/pages/databundles/databundles.component';
 import { ElectronicsComponent } from './components/pages/electronics/electronics.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { OrderService } from './components/services/order.service';
+import { CartService } from './components/services/cart.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import { CartComponent } from './components/pages/cart/cart.component';
     MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [StorageService],
+  providers: [StorageService,OrderService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
             <div class="d-flex flex-wrap">
                 <a href="#" class="text-muted small me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+233544073427</a>
+                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+233544073427 </a>
                 <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>immanuelderry31&#64;gmail.com</a>
             </div>
         </div>
@@ -46,14 +46,15 @@
                 </a>
         
                 <!-- Show My Dashboard when username is available -->
-                <div class="dropdown" *ngIf="username">
+                <!-- <div class="dropdown" *ngIf="username && timeLeftDisplay.display<0"> -->
+                    <div class="dropdown" *ngIf="username">
                     <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown">
                         <small>
                             <i class="fa fa-home text-primary me-2"></i> {{username}} Dashboard
                         </small>
                     </a>
                     <div class="dropdown-menu rounded">
-                        <a (click)="openModal('@fat')" class="dropdown-item">
+                        <a routerLink="/cart" class="dropdown-item">
                             <i class="fas fa-user-alt me-2"></i> Cart
                         </a>
                         <!-- <button class="btn btn-secondary" (click)="openModal('@fat')">Cart</button> -->
@@ -66,7 +67,7 @@
 
                             
             
-                        <a href="#" class="dropdown-item">
+                        <!-- <a href="#" class="dropdown-item">
                             <i class="fas fa-comment-alt me-2"></i> Inbox
                         </a>
                         <a href="#" class="dropdown-item">
@@ -74,12 +75,15 @@
                         </a>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-cog me-2"></i> Account Settings
-                        </a>
+                        </a> -->
                         <button (click)="logout()" class="dropdown-item">
                             <i class="fas fa-power-off me-2"></i> Log Out
                         </button>
                     </div>
                 </div>
+
+
+
         
             </div>
         </div>
@@ -112,6 +116,9 @@
                 <a routerLinkActive="active" routerLink="/blog" class="nav-item nav-link">Blogs</a>
                 <!-- <a routerLinkActive="active" routerLink="/offers" class="nav-item nav-link">Our Offers</a> -->
 
+                <a (click)="logout()" *ngIf="username" class="nav-item nav-link d-flex align-items-center gap-1 position-relative d-block d-md-none">
+                    <i class="fas fa-power-off me-2"></i> Log Out
+                </a>
             
                 <a routerLinkActive="active" routerLink="/cart" class="nav-item nav-link d-flex align-items-center gap-1 position-relative">
                     <span>Cart</span>
@@ -179,3 +186,10 @@ aria-labelledby="exampleModalLabel"
     </div>
   </div>
 </div> -->
+
+
+
+
+
+
+<!-- <span >Your session expires in : {{ timeLeftDisplay.display }}</span> -->
