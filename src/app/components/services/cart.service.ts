@@ -44,4 +44,9 @@ export class CartService {
   public updateCart(cartId:number){
     return this.http.get(`${baseUrl}/cart/update/${cartId}`)
   }
+
+
+  public paymentStatus(transactionId:number){
+    return this.http.get(`${baseUrl}/payment/status/${transactionId}`)
+  }
 }
