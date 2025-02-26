@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './components/services/storage.service';
+import { NgOtpInputModule } from  'ng-otp-input';
+
 
 
 
@@ -64,7 +66,8 @@ import { CartService } from './components/services/cart.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    NgOtpInputModule
   ],
   providers: [StorageService,OrderService,CartService],
   bootstrap: [AppComponent]
