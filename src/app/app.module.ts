@@ -39,6 +39,7 @@ import { ElectronicsComponent } from './components/pages/electronics/electronics
 import { CartComponent } from './components/pages/cart/cart.component';
 import { OrderService } from './components/services/order.service';
 import { CartService } from './components/services/cart.service';
+import { CustomSnackbarComponent } from './components/pages/custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CartService } from './components/services/cart.service';
     DatabundlesComponent,
     ElectronicsComponent,
     CartComponent,
+    CustomSnackbarComponent,
     
   ],
   imports: [
