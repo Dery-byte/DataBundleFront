@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import baseUrl from './helper';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,11 @@ export class CartService {
 
   public paymentStatus(transactionId:number){
     return this.http.get(`${baseUrl}/payment/status/${transactionId}`)
+  }
+
+  //PAYMENT STATUS
+
+  getPaymentStatus(payload: any): Observable<any> {
+    return this.http.post<any>(`${baseUrl}/payment/statusWebhook/`, payload);
   }
 }
