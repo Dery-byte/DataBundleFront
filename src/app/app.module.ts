@@ -39,7 +39,9 @@ import { ElectronicsComponent } from './components/pages/electronics/electronics
 import { CartComponent } from './components/pages/cart/cart.component';
 import { OrderService } from './components/services/order.service';
 import { CartService } from './components/services/cart.service';
+import { WebSocketService } from './components/services/websocket.service';
 import { CustomSnackbarComponent } from './components/pages/custom-snackbar/custom-snackbar.component';
+import { PaymentService } from './components/services/payment.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,7 @@ import { CustomSnackbarComponent } from './components/pages/custom-snackbar/cust
     HttpClientModule,
     NgOtpInputModule
   ],
-  providers: [StorageService,OrderService,CartService],
+  providers: [StorageService,OrderService,CartService,WebSocketService,PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

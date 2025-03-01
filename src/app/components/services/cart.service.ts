@@ -1,15 +1,109 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import baseUrl from './helper';
-import { Observable } from 'rxjs';
+import { Observable,Subscription  } from 'rxjs';
+import { PaymentService, PaymentStatus } from './payment.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  paymentStatusR: PaymentStatus | null = null;
+  isConnected = false;
+  
+  private statusSubscription: Subscription | null = null;
+  private connectionSubscription: Subscription | null = null;
 
   constructor(
-    private http:HttpClient ) { }
+    private http:HttpClient ,
+    private paymentService: PaymentService
+  ) { }
+
+
+  ngOnInit(): void {
+  }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     addToCart(cart: any) {
       const token = localStorage.getItem('token'); // Retrieve token
