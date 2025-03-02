@@ -23,88 +23,6 @@ export class CartService {
 
   ngOnInit(): void {
   }
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     addToCart(cart: any) {
       const token = localStorage.getItem('token'); // Retrieve token
       const headers = new HttpHeaders({
@@ -147,7 +65,7 @@ export class CartService {
 
   //PAYMENT STATUS
 
-  getPaymentStatus(payload: any): Observable<any> {
-    return this.http.post<any>(`${baseUrl}/payment/statusWebhook/`, payload);
-  }
+  // getPaymentStatus(payload: any): Observable<any> {
+  //   return this.http.post<any>(`${baseUrl}/payment/statusWebhook/`, payload);
+  // }
 }
