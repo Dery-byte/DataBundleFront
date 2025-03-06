@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Databundle';
+
+  constructor(private router: Router) {}
+
+  showHeaderAndFooter(): boolean {
+    return !this.router.url.startsWith('/admin'); // Hide for admin routes
+  }
 
   ngOnInit(): void {
     this.loadScript('assets/lib/wow/wow.min.js')
