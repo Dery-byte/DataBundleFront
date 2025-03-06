@@ -17,6 +17,7 @@ import { AdminDashboardComponent } from './components/pages/admin/admin-dashboar
 import { OrdersComponent } from './components/pages/admin/orders/orders.component';
 import { UserLayoutComponent } from './components/pages/layouts/user-layout/user-layout/user-layout.component';
 import { AdminHomeComponent } from './components/pages/admin/admin-home/admin-home.component';
+import { PaymentComponent } from './components/pages/admin/payment/payment.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Redirect `/admin` to `/admin/dashboard`
       { path: 'dashboard', component: AdminHomeComponent }, // Default admin route
       { path: 'orders', component: OrdersComponent },
-      // { path: 'payment', component: PaymentComponent },
+      { path: 'payment', component: PaymentComponent },
     ],
   },
 

@@ -41,6 +41,9 @@ export class PaymentService {
 
 
 
+  viewAllPayment() {
+    return this.http.get(`${baseUrl}/payment/allPayment`);
+  }
 
 
 

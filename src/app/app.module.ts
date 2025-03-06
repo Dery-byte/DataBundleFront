@@ -56,6 +56,7 @@ import { AdminHeaderComponent } from './components/pages/admin/admin-header/admi
 import { AdminFooterComponent } from './components/pages/admin/admin-footer/admin-footer.component';
 import { AdminSidebarComponent } from './components/pages/admin/admin-sidebar/admin-sidebar.component';
 import { UserLayoutComponent } from './components/pages/layouts/user-layout/user-layout/user-layout.component';
+import { PaymentComponent } from './components/pages/admin/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { UserLayoutComponent } from './components/pages/layouts/user-layout/user
     AdminFooterComponent,
     AdminSidebarComponent,
     UserLayoutComponent,
+    PaymentComponent,
     
   ],
   imports: [

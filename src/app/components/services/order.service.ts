@@ -31,6 +31,11 @@ export class OrderService {
   }
 
 
+
+  viewAllOrder() {
+    return this.http.get(`${baseUrl}/allOrders`);
+  }
+
   public deleteOrder(cartId:number){
     return this.http.delete(`${baseUrl}/order/delete/${cartId}`, { responseType: 'text' })
   }
