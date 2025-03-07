@@ -18,6 +18,7 @@ import { OrdersComponent } from './components/pages/admin/orders/orders.componen
 import { UserLayoutComponent } from './components/pages/layouts/user-layout/user-layout/user-layout.component';
 import { AdminHomeComponent } from './components/pages/admin/admin-home/admin-home.component';
 import { PaymentComponent } from './components/pages/admin/payment/payment.component';
+import { loginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
@@ -61,7 +62,7 @@ const routes: Routes = [
       {path:'about', component:AboutComponent},
       {path:'offers', component:OffersComponent},
       {path:'register', component:RegisterComponent},
-      {path:'login', component:LoginComponent},
+      {path:'login', component:LoginComponent, canActivate:[loginGuard]},
       {path:'databundles', component:DatabundlesComponent},
       {path:'electronics', component:ElectronicsComponent},
       {path:'cart', component:CartComponent, canActivate: [authGuard]},

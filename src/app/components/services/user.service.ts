@@ -18,4 +18,8 @@ return this.http.post(`${baseUrl}/register`, user);
   public alluser(){
     return this.http.get(`${baseUrl}/users`)
   }
+
+  public allRoleUsers(){
+    return this.http.get(`${baseUrl}/roleUsers`)
+  }
 }
