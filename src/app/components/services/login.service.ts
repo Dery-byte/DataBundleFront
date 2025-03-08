@@ -93,7 +93,6 @@ export class LoginService {
 
 
   // RESET PASSWORD
-
   public resetPassword(resetData:any){
     return this.http.put(`${baseUrl}/changePassword`, resetData);
 
