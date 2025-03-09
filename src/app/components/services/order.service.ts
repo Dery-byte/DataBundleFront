@@ -43,4 +43,13 @@ export class OrderService {
   public updateOrder(cartId:number){
     return this.http.get(`${baseUrl}/order/update/${cartId}`)
   }
+
+
+
+  public updateOrderStatus(orderId:number){
+    return this.http.put(`${baseUrl}/updateOrderStatus/${orderId}`, {})
+  }
+
+
+
 }
