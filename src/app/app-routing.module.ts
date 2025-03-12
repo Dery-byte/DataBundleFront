@@ -19,6 +19,7 @@ import { UserLayoutComponent } from './components/pages/layouts/user-layout/user
 import { AdminHomeComponent } from './components/pages/admin/admin-home/admin-home.component';
 import { PaymentComponent } from './components/pages/admin/payment/payment.component';
 import { loginGuard } from './guards/login.guard';
+import { SoftwareSolutionsComponent } from './components/pages/users/software-solutions/software-solutions.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,8 @@ const routes: Routes = [
       {path:'databundles', component:DatabundlesComponent},
       {path:'electronics', component:ElectronicsComponent},
       {path:'cart', component:CartComponent, canActivate: [authGuard]},
+      {path:'sofwaredev', component:SoftwareSolutionsComponent},
+
     ],
   },
   // { path: '**', redirectTo: '/user' } // Redirect unknown routes
