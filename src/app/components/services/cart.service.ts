@@ -63,6 +63,16 @@ export class CartService {
     return this.http.get(`${baseUrl}/payment/status/${transactionId}`)
   }
 
+
+
+
+
+  public afaRequest(afa:any){
+    return this.http.post(`${baseUrl}/afa/request`, afa);
+      }
+
+
+
   //PAYMENT STATUS
 
   // getPaymentStatus(payload: any): Observable<any> {

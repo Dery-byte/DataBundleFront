@@ -22,4 +22,10 @@ return this.http.post(`${baseUrl}/register`, user);
   public allRoleUsers(){
     return this.http.get(`${baseUrl}/roleUsers`)
   }
+
+
+   //add user
+   public contactUs(contact:any){
+    return this.http.post(`${baseUrl}/contact/sendInquiry`, contact);
+      }
 }
