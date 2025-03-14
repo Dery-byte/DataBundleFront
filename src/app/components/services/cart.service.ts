@@ -63,14 +63,24 @@ export class CartService {
     return this.http.get(`${baseUrl}/payment/status/${transactionId}`)
   }
 
-
-
-
-
   public afaRequest(afa:any){
     return this.http.post(`${baseUrl}/afa/request`, afa);
       }
 
+
+      public messageCount(){
+        return this.http.get(`${baseUrl}/contact/messageCount`)
+      }
+
+      public loadMessages(){
+        return this.http.get(`${baseUrl}/contact/allMessages`)
+      }
+
+
+      public updateMessageStatus(contactId:number){
+        return this.http.put(`${baseUrl}/contact/updateMessageStatus/${contactId}`, {})
+      }
+    
 
 
   //PAYMENT STATUS

@@ -50,6 +50,12 @@ export class OrderService {
     return this.http.put(`${baseUrl}/updateOrderStatus/${orderId}`, {})
   }
 
+  viewAllAfaRequest() {
+    return this.http.get(`${baseUrl}/afa/allAfaRequest`);
+  }
 
+  public updateAfaStatus(afaId:number){
+    return this.http.put(`${baseUrl}/afa/updateAfaRequestStatus/${afaId}`, {})
+  }
 
 }
