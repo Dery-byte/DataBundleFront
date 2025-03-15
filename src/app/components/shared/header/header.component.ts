@@ -37,10 +37,10 @@ export class HeaderComponent {
 
  ngOnInit(){
  this.username = this.storageService.getUsername();
-//  this.cartCounts();
-//  this.intervalSubscription = interval(2000).subscribe(() => {
-//   this.cartCounts(); // Refresh every 3 seconds
-// });
+ this.cartCounts();
+ this.intervalSubscription = interval(2000).subscribe(() => {
+  this.cartCounts(); // Refresh every 3 seconds
+});
 
   }
 
