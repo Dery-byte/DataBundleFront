@@ -11,7 +11,12 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+
+ 
 
 
 
@@ -100,7 +105,10 @@ import { SoftwareSolutionsComponent } from './components/pages/users/software-so
     NgOtpInputModule,
     MatCardModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [StorageService,OrderService,CartService,WebSocketService,PaymentService],
   bootstrap: [AppComponent]
