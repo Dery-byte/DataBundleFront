@@ -39,8 +39,10 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Support</h4>
-                    <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                    <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+                    <a><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                    <!-- <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a> -->
+                   <a><i class="fas fa-angle-right me-2"></i><button (click)="openModal()" class="btn  tAndC" >Terms & Conditions</button></a>
+
                     <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Disclaimer</a> -->
                     <a routerLink="/contact"><i class="fas fa-angle-right me-2"></i> Support</a>
                     <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a> -->
@@ -101,3 +103,61 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
+
+<!-- <main>
+    <dialog id="confirm-dialog" popover>
+      <h3>Delete task?</h3>
+      <p>Deleting this task will remove it permanently. Any associated files, comments, and subtasks will also be deleted. Are you sure you want to proceed?</p>
+      <button class="btn primary" popovertarget="confirm-dialog" popovertargetaction="hide">Delete</button>
+      <button class="btn secondary" popovertarget="confirm-dialog" popovertargetaction="hide">Cancel</button>
+    </dialog>
+  </main> -->
+
+  <main>
+    <dialog #confirmDialog>
+      <h2 style="text-align: center; text-transform: uppercase;">Important Notice</h2>
+      <div class="data">
+      <h3>Terms & Conditions Data Purchase</h3>
+
+  
+      <p style="text-transform: uppercase; font-weight: bolder;">Our data bundle do not support the following SIM Cards</p>
+      <ul>
+        <li>Different Network</li>
+        <li>Wrong Number</li>
+        <li>Broadband Sim</li>
+        <li>Turbonet Sim</li>
+        <li>Blacklisted Sim</li>
+        <li>Roaming Sim</li>
+        <li>Transfer Sim</li>
+        <li>Company Sim</li>
+      </ul>
+      <p style="color: red; text-transform: uppercase; text-decoration: underline;">Any data sent to the above Sim card get burned and the customer pays for it.</p>
+
+  
+      <p><strong>Before Placing Your Order:</strong></p>
+  
+      <p>Ensure you verify the following to avoid any issues:</p>
+  
+      <ul>
+        <li>Correct recipient number</li>
+        <li>Compatible network</li>
+        <li>Active and valid SIM card</li>
+        <li>Ensure the customer is not owing airtime (as data may be received or not)</li>
+      </ul>
+  
+      <p><strong>By placing your order, you acknowledge that you have checked and confirmed the above details.</strong></p>
+  
+      </div>
+    <div class="lap">
+      <h3>Terms & Conditions Laptop Purchase</h3>
+      <p>...</p>
+    </div>
+  
+
+    <p>Thank you.</p>
+
+      <button class="btn" (click)="closeModal()">Close</button>
+    </dialog>
+  </main>
+  
+  
