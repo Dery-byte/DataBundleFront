@@ -53,7 +53,7 @@ const routes: Routes = [
 
   {
     path: '',
-    component: UserLayoutComponent,  // 🟢 Admin layout wrapper
+    component: UserLayoutComponent,  // 🟢 User layout wrapper
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '', component: HomeComponent },

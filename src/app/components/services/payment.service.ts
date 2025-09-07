@@ -134,7 +134,10 @@ export class PaymentService {
     return this.http.post(`${baseUrl}/payment/verifyOtp`,data, { headers: headers });
   }
 
+  
   public getPaymentStatus(exteRef:string){
     return this.http.get(`${baseUrl}/payment/status/${exteRef}`)
   }
+
+
 }
